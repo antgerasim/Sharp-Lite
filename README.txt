@@ -1,75 +1,30 @@
-Welcome to S#arp Lite!
+This is an non-functional UPGRADE of Billy McCafferty's SharpLite reference architecure, to be runned on VISUAL STUDIO 2013 MVC4. 
 
-S#arp Lite is an architectural framework for the development of well-designed, custom-built, ASP.NET MVC applications.
+TO OPEN SAMPLE PROJECT "MyStore":
 
-For an introduction, see http://devlicio.us/blogs/billy_mccafferty/archive/2011/11/11/s-arp-lite-the-basicss.aspx
-
-The code repository is found at https://github.com/codai/Sharp-Lite
-
-If you'd like to see a couple of example projects, take a look in the \Example folder.
+1) CREATE EMPTY (MS SQL Server Express) DATABASE AND NAME IT "<<yourDBName>>"
+2) ADJUST CONNECTIONSTRINGS IN:
+	- MyStore.Web/Web.config
+	- Mystore.Tests/App.config
+	
+	 <add name="MyStoreConnectionString" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=<<yourDBName>>;Integrated Security=True" />
+	 
+3) Do the same for CaTS solutions	 
+	 
+PUSH IT!
 
 -----------------------------------
 
-To get started with your first S#arp Lite project...
+links:
 
-#) Install Visual Studio 2010
+http://www.codeproject.com/Articles/285158/Ssharparp-Lite-The-Basics
 
-#) Install ASP.NET MVC 3
+http://www.codeproject.com/Articles/13390/NHibernate-Best-Practices-with-ASP-NET-nd-Ed
 
-#) Install Templify, available from https://github.com/endjin/Templify/downloads (Templify-v0.6.15144.msi was used with this release.)
+http://devlicio.us/blogs/billy_mccafferty/archive/2012/08/02/greenfield-development-with-asp-net-mvc-amp-s-arp-lite-introduction.aspx
 
-#) Copy \SharpLite\Template\s#arp-lite-project-v0.9.pkg to C:\Users\%USER%\AppData\Roaming\Endjin\Templify\repo\
-(Note that the AppData folder is hidden by default.)
+http://devlicio.us/blogs/billy_mccafferty/archive/2012/08/24/greenfield-development-with-asp-net-mvc-amp-s-arp-lite-day-1.aspx
 
-#) In Windows Explorer, create a new, empty folder for your S#arp Lite project (e.g., "MyNewProject")
+http://devlicio.us/blogs/billy_mccafferty/archive/2012/10/12/greenfield-development-with-asp-net-mvc-amp-s-arp-lite-day-2.aspx
 
-#) Right click the new folder and click "Templify Here"
-
-#) In the Templify dialog:
-	- Select the template "S#arp Lite Project - #"
-	- Enter the name of your root namespace (which is probably the same name as the proejct; e.g., "MyNewProject")
-	- Click "Deploy Template" (should take well less than a minute to run)
-	- Exit Templify when it completes
-
-#) Open the folder and then open the newly created solution
-
-#) Create your database in SQL Server
-
-#) Update the connection string in:
-	- YourProject.Web/Web.config
-	- YourProject.Tests/App.config
-
-#) F5 to see the site; you can also run the unit YourProject.Tests in NUnit to verify everything is working
-
-Now, start building out your domain model and run the unit test CanGenerateDatabaseSchema to do just that...it'll be in the "Text Output" tab in NUnit.  You can then run that SQL against your DB.
-
-
-
-                                                                                                                                                      
-                 `-://++ooooo++//:.`                                                                                                                  
-             `:/ooooooooooooooooooooo/-`                                                                                                              
-          `:+ooooooooooooooooooooooooooo+-`                                                                                                           
-        `/oooooooooooooooooooooooooooooosso:`                                                                                                         
-      `:oooooooooooooo/--`-:/+ooooooooooossso-                                                                                    +hh+  `yhh.   omm+  
-     .+ooooooooooooo/`        `+oooooooooossss+`                                                                                  yMMh  -NMM/   dMMh  
-    .oooooooooooooooo-.::.`/..-/oooooooooossssso`                                                                                 yMMh  -NMM/   dMMh  
-   .oooooooooooooooo/:/. ` .-.`.-:+ooooooosssssso`                                                                                yMMmssyMMMhsssmMMh  
-   +ooooooooooooooo//:.--..+o+/+++ooooooooossssss/                                            `                                   yMMMMMMMMMMMMMMMMy  
-  -ooooooooooooooo++oo+-.``-:     `.:ooooosssssssy`                                      `-+ymN:                                  `::::::::::::::::`  
-  /oooooooo+/-.             -+::-``.-ooooossssssyy:            .:+shmNNNy          ./s:  sMMMMy                                   -++/`               
-  +oooooo+.          `--:--:-oooooooooooosssssssyy+        -ohNMNmdhydMy.        .NMMm` `mMMMNsydmh/`                             sMMm`               
-  +ooooooo/:---///- ./ooooooooooooooooooosssssssyy+     -smhs+:.`    .:          sMMMyyhmMMMmys+/-`                               sMMN-............  
-  /oooo+++++o+ooo/`-oooooooooooooooooooosssssssyyy/    sMo`               `:+sydNMMNhyodMMMm. `                        ``         sMMMMMMMMMMMMMMMMs  
-  -oo/`       ``// ...``..-/ooo+::--://ooossssyyyy`   .mNNhhhhhhhhhyyo/.  .odmssMMM/ `/MMMMmmNms. ./syy+`     .yNs  `+dMM/  `.`   sMMMdddddddddhhhy/  
-   os+.`        `-  ``     -o+.           `-:oyyy+      `:hmNNNNNNNMMMMM+    `-mMMNdNNMMMNo:.` `+dMh/yMm`.ydN+sMM: /myhMN-+dNMd   sMMm.              
-   .ossoo/-/:/++++/:.`.:-  ``                 oys`                 `-dMMoshmNMMMMy/-:mMMM+   `oNMy..hMM/  -MModNNosy.`mMddo.+Md   sMMm.         .--  
-    .osssoooooooooooo/           `:::-.`.`  .oys`                `./ydo. `:+-hMMy  `dMMMo   .dMM+.omMMm`  /MNd-`` ` `yMMh. :my.   `--.`        `mMMs  
-     .ossssssoooooooo-      ```..`+sssssyyysyyo`   .+y-  `.-/+shmNms.       yMMy  `dMMMo    oMMNhs:/MMs  oMMm-    :dMMMMdhdmo     ````         `mMMy  
-      `/sssssssssso+/+/   .+ssssssssssyyyyyyy:   `sMMhdmNMMMmhy+:.         sNdo` `yMMMs      -.    `++:  `+:      .+MMmo+:.                    .mMMy  
-        `/sssssss/`     ./sssssssssyyyyyyyy/`   sNMNmhyo+:-`              `-`    yMMMs                            `hMm.           +mNNNNNNNNNNNNMMMh  
-          `:osss-     +ssssssssyyyyyyyyyo:    `  `                              :s+-`                             oMM:            /mmmmmmmmmmmmmmmmo  
-             .:.      /yyyyyyyyyyyyys+:`    .sd         .d:  `  `          `                                     .MNd`              `````` ````````   
-                       /yyyyysso+/-`      `+/ss ..s.`/:`ds: +o oh`.+/ `/-`ho /::..-s..+/                          .`                                  
-                                        `yyo/yh yho+m:-ohys:m.sd::No:od:-dy-/NoN.sdo+No:                                                              
-                                       `+/   `:`+. /o/`: /::+.:+:-o/-++:`/+-:/./`+. .o/-                                                              
-                                       -`                                                                                                             
+http://devlicio.us/blogs/billy_mccafferty/archive/2012/10/16/greenfield-development-with-asp-net-mvc-amp-s-arp-lite-day-3.aspx

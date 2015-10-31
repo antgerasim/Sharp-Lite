@@ -1,1 +1,0 @@
-Folder for build related items; e.g., Publish folder, NAnt artifacts, etc.

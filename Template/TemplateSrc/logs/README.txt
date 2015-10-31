@@ -1,1 +1,0 @@
-Folder for all your project's logging output.

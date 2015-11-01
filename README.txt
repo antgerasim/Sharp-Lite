@@ -2,14 +2,16 @@ This is an non-functional UPGRADE of Billy McCafferty's SharpLite reference arch
 
 TO OPEN SAMPLE PROJECT "MyStore":
 
-1) CREATE EMPTY (MS SQL Server Express) DATABASE AND NAME IT "<<yourDBName>>"
+1) CREATE EMPTY (MS SQL Server Express) DATABASE AND NAME IT "SharpLiteMyStore"
 2) ADJUST CONNECTIONSTRINGS IN:
 	- MyStore.Web/Web.config
 	- Mystore.Tests/App.config
 	
-	 <add name="MyStoreConnectionString" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=<<yourDBName>>;Integrated Security=True" />
+    <add name="MyStoreConnectionString" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=SharpLiteMyStore;Integrated Security=True" />
 	 
-3) Run CanGenerateDatabaseSchema() and copy the SQL commands as generated output. Execute SQL scripts on your Database	 
+3) Run CanGenerateDatabaseSchema() and copy the SQL commands as generated output from Resharper's UnitTestExplorer. Execute SQL commands on your Database (SharpLiteMyStore).
+
+Attention: Templify sets the Project Url Port (http://localhost:55462/) for every generated project! Changes this to avoid clashes and confusions with other SharpLite projects. 
 PUSH IT!
 
 -----------------------------------

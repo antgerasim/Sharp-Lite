@@ -9,8 +9,7 @@ TO OPEN SAMPLE PROJECT "MyStore":
 	
 	 <add name="MyStoreConnectionString" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=<<yourDBName>>;Integrated Security=True" />
 	 
-3) Do the same for CaTS solutions	 
-	 
+3) Run CanGenerateDatabaseSchema() and copy the SQL commands as generated output. Execute SQL scripts on your Database	 
 PUSH IT!
 
 -----------------------------------
